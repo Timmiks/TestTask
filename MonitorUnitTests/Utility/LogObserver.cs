@@ -2,6 +2,7 @@
 using MonitorUnitTests.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -32,6 +33,8 @@ namespace MonitorUnitTests.Utility
             var fileInfo = GetLogFile(monitor);
             int actualLogLinesCount = 0;
             string fileContent = null;
+
+            Stopwatch timer = Stopwatch.StartNew();
             do
             {
                 try
@@ -49,7 +52,7 @@ namespace MonitorUnitTests.Utility
                 {
 
                 }
-            } while (actualLogLinesCount < expectedLogLines);
+            } while (actualLogLinesCount < expectedLogLines && !monitor.HasExited && timer.ElapsedMilliseconds < Constants.LogFileReadMaxTime);
 
             return fileContent;
         }

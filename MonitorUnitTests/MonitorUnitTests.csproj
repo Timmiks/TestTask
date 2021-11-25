@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\Constants.cs" />
     <Compile Include="Utility\CustomAssert.cs" />
     <Compile Include="TestsGlobalSetupTeardown.cs" />
     <Compile Include="TestSuites\MonitorTests.cs" />

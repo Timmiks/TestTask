@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace MonitorUnitTests.TestSuites
 {
-    [TestFixture, Timeout(120000)]
+    [TestFixture, Timeout(Constants.TestTimeout)]
     public class MonitorTests
     {
         private Process monitor;
